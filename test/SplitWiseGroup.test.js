@@ -4,7 +4,7 @@ const { ethers } = require('hardhat')
 describe('SplitWiseGroup contract', function () {
   let owner, member1, member2, member3, member4, member5, splitWiseGroup
 
-  const REQUIRED_HBAR_AMOUNT = '1'
+  const REQUIRED_HBAR_AMOUNT = '0.01'
 
   before(async function () {
     const signers = await ethers.getSigners()
@@ -15,9 +15,12 @@ describe('SplitWiseGroup contract', function () {
     member4 = signers[4]
     member5 = signers[5]
 
-    const SplitWiseGroup = await ethers.getContractFactory('SplitWiseGroup')
+    const SplitWiseGroup = await ethers.getContractFactory(
+      'SplitWiseGroup',
+      owner
+    )
     splitWiseGroup = await SplitWiseGroup.deploy(
-      ethers.utils.parseEther(REQUIRED_HBAR_AMOUNT),
+      ethers.utils.parseUnits(REQUIRED_HBAR_AMOUNT, 8),
       [member1.address, member2.address, member3.address, member4.address],
       owner.address
     )
@@ -29,25 +32,25 @@ describe('SplitWiseGroup contract', function () {
       expect(await splitWiseGroup.owner()).to.equal(owner.address)
     })
 
-    // it('Should set the required amount correctly', async function () {
-    //   expect(await splitWiseGroup.requiredAmount()).to.equal(
-    //     ethers.utils.parseEther('1')
-    //   )
-    // })
+    it('Should set the required amount correctly', async function () {
+      expect(
+        ethers.utils.formatUnits(await splitWiseGroup.requiredAmount(), 8)
+      ).to.equal(REQUIRED_HBAR_AMOUNT)
+    })
 
-    // it('Should initialize with isOpen as true', async function () {
-    //   expect(await splitWiseGroup.isSettled()).to.equal(false)
-    // })
+    it('Should initialize with isOpen as true', async function () {
+      expect(await splitWiseGroup.isSettled()).to.equal(false)
+    })
 
-    // it('Should add owner as active member during deployment', async function () {
-    //   expect(await splitWiseGroup.isMember(owner.address)).to.equal(true)
-    //   expect(await splitWiseGroup.getActiveMember(0)).to.equal(owner.address)
-    // })
+    it('Should add owner as active member during deployment', async function () {
+      expect(await splitWiseGroup.isMember(owner.address)).to.equal(true)
+      expect(await splitWiseGroup.getActiveMember(0)).to.equal(owner.address)
+    })
 
-    // it('Should add members to the whitelist during deployment', async function () {
-    //   expect(await splitWiseGroup.isWhitelisted(member1.address)).to.equal(true)
-    //   expect(await splitWiseGroup.isWhitelisted(member2.address)).to.equal(true)
-    // })
+    it('Should add members to the whitelist during deployment', async function () {
+      expect(await splitWiseGroup.isWhitelisted(member1.address)).to.equal(true)
+      expect(await splitWiseGroup.isWhitelisted(member2.address)).to.equal(true)
+    })
   })
 
   //   describe('Joining the group', function () {
