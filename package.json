@@ -1,7 +1,7 @@
 {
-  "name": "hedera-example-hardhat-project",
+  "name": "divipay",
   "version": "1.0.0",
-  "description": "This is a example hardhat project",
+  "description": "Simplify group expenses",
   "main": "index.js",
   "scripts": {
     "test": "npx hardhat test",
@@ -10,23 +10,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hashgraph/hedera-local": "^2.4.5",
-    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
-    "dotenv": "^16.0.3"
+    "@hashgraph/hedera-local": "^2.32.5",
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0"
   },
   "devDependencies": {
-    "hardhat": "^2.12.6"
+    "dotenv": "^16.4.7",
+    "hardhat": "^2.22.17"
   },
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hashgraph/hedera-hardhat-example-project.git"
+    "url": "git+https://github.com/nopanic-labs/divipay-contract.git"
   },
   "keywords": [],
   "bugs": {
-    "url": "https://github.com/hashgraph/hedera-hardhat-example-project/issues"
+    "url": "https://github.com/nopanic-labs/divipay-contract/issues"
   },
-  "homepage": "https://github.com/hashgraph/hedera-hardhat-example-project"
+  "homepage": "https://github.com/nopanic-labs/divipay-contract"
 }
