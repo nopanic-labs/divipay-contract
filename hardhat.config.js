@@ -26,15 +26,15 @@ task('contract-call', async taskArgs => {
 })
 
 const member1_pk =
-  '0xef8744144e4e7591d70c0925f4fa9565dccdf16c5f52e8747070c19ed68ed78a'
+  '0xdc7870e04f639d77beffb18bae38e0cbd0b79e4181ea87bf9eddfc1fda68607f'
 const member2_pk =
-  '0x7f470836d8e5b493dbc22d6e335ed06e89b9a468c7622cccffe4ae5f1fe10160'
+  '0x499be1771c3f74265b44ea92eb770d5e9fe35722f3a9f416ca8de2ebb249d952'
 const member3_pk =
-  '0xb1e95edd00bfa0f270acca42cc2eeeb65d967da3dca3f649f74a1caec19ca2b2'
+  '0x10fae7b89527f895f309eec48ab2f29d57f2ffd0f10abc628b6ad1d0fb17dcba'
 const member4_pk =
-  '0xc418c721203d3db43a661a7f8682710bd1d9bcfbe18e9a1a0ba3e53693a540ec'
+  '0xb4654d5024ecd7f31f732a95f432c6855fff33e7e3b8b4393ff791b95a28e90f'
 const member5_pk =
-  '0x85a38a819d745e5e437c3425584e6eba8df2bbff52a6c83ef0dbea6d4e304f6e'
+  '0xeef3cf2ed6ebab10ad79f0e3135d5b46353acc8560c87092820168f2d572c928'
 
 module.exports = {
   mocha: {
