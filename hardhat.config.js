@@ -4,6 +4,11 @@ require('@nomiclabs/hardhat-ethers')
 // Import dotenv module to access variables stored in the .env file
 require('dotenv').config()
 
+task('deploy-contract', async () => {
+  const deployContract = require('./scripts/deploy')
+  return deployContract()
+})
+
 const member1_pk =
   '0xdc7870e04f639d77beffb18bae38e0cbd0b79e4181ea87bf9eddfc1fda68607f'
 const member2_pk =
